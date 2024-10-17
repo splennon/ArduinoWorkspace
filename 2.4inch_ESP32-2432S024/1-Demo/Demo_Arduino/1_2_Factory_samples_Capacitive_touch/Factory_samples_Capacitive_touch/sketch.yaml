@@ -1,0 +1,17 @@
+default_profile: cyd
+
+profiles:
+  cyd:
+    notes: Build for CYD
+    # fqbn: esp32:esp32:esp32da
+    # user: ./1-Demo/Demo_Arduino/libraries
+    # platforms:
+    #   - platform: <PLATFORM> (<PLATFORM_VERSION>)
+    #     platform_index_url: <3RD_PARTY_PLATFORM_URL>
+    #   - platform: <PLATFORM_DEPENDENCY> (<PLATFORM_DEPENDENCY_VERSION>)
+    #     platform_index_url: <3RD_PARTY_PLATFORM_DEPENDENCY_URL>
+    # libraries:
+    #   - <LIB_NAME> (<LIB_VERSION>)
+    #   - <LIB_NAME> (<LIB_VERSION>)
+    #   - <LIB_NAME> (<LIB_VERSION>)
+default_port: /dev/cu.usbserial-110

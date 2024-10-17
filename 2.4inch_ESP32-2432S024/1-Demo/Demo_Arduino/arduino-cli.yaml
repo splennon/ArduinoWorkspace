@@ -1,0 +1,5 @@
+board_manager:
+    additional_urls: [https://espressif.github.io/arduino-esp32/package_esp32_index.json]
+directories:
+    user:  /Users/stephen/arduino/2.4inch_ESP32-2432S024/1-Demo/Demo_Arduino/
+    data: /Users/stephen/arduino/2.4inch_ESP32-2432S024/1-Demo/Demo_Arduino/

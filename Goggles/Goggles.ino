@@ -1,0 +1,78 @@
+#define LEFT_INNER_RED_PIN 16
+#define LEFT_OUTER_RED_PIN 2
+#define LEFT_INNER_GREEN_PIN 4
+#define LEFT_OUTER_GREEN_PIN 15
+#define LEFT_INNER_BLUE_PIN 0
+#define LEFT_OUTER_BLUE_PIN 13
+
+#define RIGHT_INNER_RED_PIN 33
+#define RIGHT_OUTER_RED_PIN 27
+#define RIGHT_INNER_GREEN_PIN 25
+#define RIGHT_OUTER_GREEN_PIN 14
+#define RIGHT_INNER_BLUE_PIN 26
+#define RIGHT_OUTER_BLUE_PIN 12
+
+#define LEFT_INNER_RED 0
+#define LEFT_OUTER_RED 3
+#define LEFT_INNER_GREEN 1
+#define LEFT_OUTER_GREEN 4
+#define LEFT_INNER_BLUE 2
+#define LEFT_OUTER_BLUE 5
+
+#define RIGHT_INNER_RED 6
+#define RIGHT_OUTER_RED 9
+#define RIGHT_INNER_GREEN 7
+#define RIGHT_OUTER_GREEN 10
+#define RIGHT_INNER_BLUE 8
+#define RIGHT_OUTER_BLUE 11
+
+#define PWM_FREQ 500
+#define PWM_RESOLUTION 16
+
+const int MAX_DUTY_CYCLE = (int)(pow(2, PWM_RESOLUTION) - 1);
+
+void setup() {
+
+  ledcSetup(LEFT_INNER_RED, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(LEFT_OUTER_RED, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(LEFT_INNER_GREEN, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(LEFT_OUTER_GREEN, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(LEFT_INNER_BLUE, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(LEFT_OUTER_BLUE, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_INNER_RED, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_OUTER_RED, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_INNER_GREEN, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_OUTER_GREEN, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_INNER_BLUE, PWM_FREQ, PWM_RESOLUTION);
+  ledcSetup(RIGHT_OUTER_BLUE, PWM_FREQ, PWM_RESOLUTION);
+
+  ledcAttachPin(LEFT_INNER_RED_PIN, LEFT_INNER_RED);
+  ledcAttachPin(LEFT_OUTER_RED_PIN, LEFT_OUTER_RED);
+  ledcAttachPin(LEFT_INNER_GREEN_PIN, LEFT_INNER_GREEN);
+  ledcAttachPin(LEFT_OUTER_GREEN_PIN, LEFT_OUTER_GREEN);
+  ledcAttachPin(LEFT_INNER_BLUE_PIN, LEFT_INNER_BLUE);
+  ledcAttachPin(LEFT_OUTER_BLUE_PIN, LEFT_OUTER_BLUE);
+  ledcAttachPin(RIGHT_INNER_RED_PIN, RIGHT_INNER_RED);
+  ledcAttachPin(RIGHT_OUTER_RED_PIN, RIGHT_OUTER_RED);
+  ledcAttachPin(RIGHT_INNER_GREEN_PIN, RIGHT_INNER_GREEN);
+  ledcAttachPin(RIGHT_OUTER_GREEN_PIN, RIGHT_OUTER_GREEN);
+  ledcAttachPin(RIGHT_INNER_BLUE_PIN, RIGHT_INNER_BLUE);
+  ledcAttachPin(RIGHT_OUTER_BLUE_PIN, RIGHT_OUTER_BLUE);
+
+
+  for (int br = 0; br < 65535; br += 250) {
+    for (int channel = 0; channel < 12; channel++) {
+      ledcWrite(channel, br);
+      delay(1);
+    }
+  }
+  for (int br = 65535; br > 1000; br -= 100) {
+    for (int channel = 0; channel < 12; channel++) {
+      ledcWrite(channel, br);
+      delay(1);
+    }
+  }
+}
+
+void loop() {
+}
